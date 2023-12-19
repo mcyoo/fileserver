@@ -1,0 +1,19 @@
+services:
+  elixir_api_server:
+    build:
+      context: ./example
+    depends_on:
+      - postgres
+    ports:
+      - 8080:8080
+    volumes:
+      - ./example/lib:/app/lib
+
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - 5432:5432

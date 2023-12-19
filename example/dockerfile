@@ -1,0 +1,6 @@
+FROM elixir:slim
+WORKDIR /app
+COPY . .
+RUN mix deps.get
+# RUN mix ecto.migrate
+CMD mix run --no-halt
